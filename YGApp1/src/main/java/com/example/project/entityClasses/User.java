@@ -10,7 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -28,6 +29,10 @@ public class User {
 		
 	int skillLevel;
 	
+	
+	
+	
+	// Cards solved by User
 	@ManyToMany(cascade = {
 		    CascadeType.PERSIST,
 		    CascadeType.MERGE
@@ -36,7 +41,7 @@ public class User {
 		    joinColumns = @JoinColumn (name = "user_id"),
 		    inverseJoinColumns = @JoinColumn(name = "card_id")
 		)
-	 Set<Card> card = new HashSet<>();
+	 Set<Card> cardsSolvedByUser = new HashSet<>();
 	
 	
 }
