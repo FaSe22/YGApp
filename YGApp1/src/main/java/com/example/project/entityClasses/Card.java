@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.example.project.enums.CardTypes;
 
 import lombok.Data;
 
@@ -24,10 +27,12 @@ public class Card {
 	
 	int difficulty;
 	
+	CardTypes type;
+	
 	@ManyToOne
 	Topic topic;
 	
-	@ManyToMany(mappedBy = "card")
+	@ManyToMany(mappedBy = "cardsSolvedByUser")
 	Set<User> user = new HashSet<>();
 	
 
