@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Data;
 
 @Entity
@@ -20,6 +22,7 @@ public class Topic {
 	String topicName;
 	
 	@OneToMany (mappedBy ="topic")
+	@JsonBackReference
 	List<Card> cardsForTopic;
 	
 	
