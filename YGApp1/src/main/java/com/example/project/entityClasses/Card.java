@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.example.project.enums.CardTypes;
+import com.example.project.enums.Difficulty;
 
 import lombok.Data;
 
@@ -25,7 +26,7 @@ public class Card {
 	String question;
 	String answer;
 	
-	int difficulty;
+	Difficulty difficulty;
 	
 	CardTypes type;
 	
