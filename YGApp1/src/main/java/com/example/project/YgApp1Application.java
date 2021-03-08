@@ -1,20 +1,14 @@
 package com.example.project;
-
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
-public class YgApp1Application implements CommandLineRunner{
+@EnableWebMvc
+public class YgApp1Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(YgApp1Application.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

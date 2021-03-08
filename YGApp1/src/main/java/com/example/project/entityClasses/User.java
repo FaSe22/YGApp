@@ -1,6 +1,8 @@
 package com.example.project.entityClasses;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -41,7 +43,7 @@ public class User {
 		    joinColumns = @JoinColumn (name = "user_id"),
 		    inverseJoinColumns = @JoinColumn(name = "card_id")
 		)
-	 Set<Card> cardsSolvedByUser = new HashSet<>();
+	 List<Card> cardsSolvedByUser = new ArrayList();
 	
 	
 }

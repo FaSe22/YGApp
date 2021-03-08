@@ -1,6 +1,8 @@
 package com.example.project.entityClasses;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.example.project.enums.CardTypes;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
@@ -30,10 +33,16 @@ public class Card {
 	CardTypes type;
 	
 	@ManyToOne
+	
 	Topic topic;
 	
+//	@ManyToMany(mappedBy = "cardsSolvedByUser")
+//	@JsonManagedReference
+//	Set<User> user = new HashSet();
+	
 	@ManyToMany(mappedBy = "cardsSolvedByUser")
-	Set<User> user = new HashSet<>();
+	
+	List<User> user = new ArrayList();
 	
 
 	
