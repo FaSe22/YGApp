@@ -33,6 +33,7 @@ public class Card {
 	CardTypes type;
 	
 	@ManyToOne
+	
 	Topic topic;
 	
 //	@ManyToMany(mappedBy = "cardsSolvedByUser")
@@ -40,7 +41,7 @@ public class Card {
 //	Set<User> user = new HashSet();
 	
 	@ManyToMany(mappedBy = "cardsSolvedByUser")
-	@JsonManagedReference
+	
 	List<User> user = new ArrayList();
 	
 

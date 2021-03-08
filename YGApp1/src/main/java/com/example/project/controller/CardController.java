@@ -1,6 +1,7 @@
-package controller;
+package com.example.project.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import com.example.project.entityClasses.Card;
 import com.example.project.repositories.CardRepository;
 
 @RestController
-//@RequestMapping("/card")
+@RequestMapping("/card")
 public class CardController {
 	
 	@Autowired
@@ -34,27 +35,31 @@ public class CardController {
 			public ResponseEntity<List<Card>> getAllCards() {
 				return ResponseEntity.ok (cardRepository.findAll());
 			}
-	
+			
+			@GetMapping("/{id}")
+			public ResponseEntity<Optional<Card>> getAllCards(@PathVariable Long id) {
+				return ResponseEntity.ok (cardRepository.findById(id));
+			}
 		     
-		     @GetMapping("/")
+		     @GetMapping("/helloworld")
 		     public String home(){
-		         return "Hello World!";
+		         return "Hello World!(in CardController)";
 		     }
 			
 			
-//	@PostMapping
-//	public Card createCard(@RequestBody Card card) {
-//		return cardRepository.save(card);
-//	}
+	@PostMapping
+	public Card createCard(@RequestBody Card card) {
+		return cardRepository.save(card);
+	}
 			
-			@PostMapping("/{question},{answer}")
-			public int createCard(@RequestParam int question, @RequestParam int answer) {
+//			@PostMapping("/{question},{answer}")
+//			public int createCard(@PathVariable int question, @PathVariable int answer) {
 //				Card card = new Card();
 //				card.setQuestion(question);
 //				card.setAnswer(answer);				
 //				return cardRepository.save(card);
-				return question + answer;
-			}
+//				return question + answer;
+//			}
 	
 	@DeleteMapping("/{id}")                                  
 		public Boolean deleteCard(@PathVariable Long id) {  //---Wird evtl geändert
