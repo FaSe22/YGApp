@@ -26,6 +26,7 @@ public class Card {
 	Long id;
 	
 	String question;
+	
 	String answer;
 	
 	int difficulty;
@@ -33,7 +34,6 @@ public class Card {
 	CardTypes type;
 	
 	@ManyToOne
-	
 	Topic topic;
 	
 //	@ManyToMany(mappedBy = "cardsSolvedByUser")
@@ -41,8 +41,7 @@ public class Card {
 //	Set<User> user = new HashSet();
 	
 	@ManyToMany(mappedBy = "cardsSolvedByUser")
-	
-	List<User> user = new ArrayList();
+	List<User> userList = new ArrayList();
 	
 
 	
