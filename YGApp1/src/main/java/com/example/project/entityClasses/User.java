@@ -12,8 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
+import com.example.project.enums.SkillLevel;
 
 import lombok.Data;
 
@@ -24,17 +24,14 @@ public class User {
 	@Id
 	@GeneratedValue
 	Long id;
-	
+
 	String firstname;
 	String lastname;
-	
-		
-	int skillLevel;
-	
-	
-	
-	
+
+	SkillLevel skillLevel;
+
 	// Cards solved by User
+<<<<<<< HEAD
 	@ManyToMany(cascade = {
 		    CascadeType.PERSIST,
 		    CascadeType.MERGE
@@ -46,4 +43,10 @@ public class User {
 	 List<Card> cardsSolvedByUser = new ArrayList();
 	
 	
+=======
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "user_cards", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "card_id"))
+	Set<Card> cardsSolvedByUser = new HashSet<>();
+
+>>>>>>> branch 'sefa' of https://github.com/FaSe22/YGApp.git
 }
