@@ -13,7 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.example.project.enums.CardTypes;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+=======
+import com.example.project.enums.Difficulty;
+>>>>>>> branch 'sefa' of https://github.com/FaSe22/YGApp.git
 
 import lombok.Data;
 
@@ -28,7 +32,7 @@ public class Card {
 	String question;
 	String answer;
 	
-	int difficulty;
+	Difficulty difficulty;
 	
 	CardTypes type;
 	
